@@ -46,3 +46,4 @@ app.*.map.json
 docker/dist/*
 web/favicon hj.png
 assets/icon hj.png
+docker.zip
