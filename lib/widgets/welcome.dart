@@ -27,7 +27,7 @@ class Welcome extends StatelessWidget {
           const SizedBox(height: 20),
           // 欢迎文本
           const Text(
-            '嗨！我是DeepSeek',
+            '我是恒健DeepSeek应用',
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
@@ -37,19 +37,19 @@ class Welcome extends StatelessWidget {
           const SizedBox(height: 10),
           // 描述文本
           const Text(
-            '我可以帮你搜索、答疑、写作，请把你',
+            '请问有什么可以帮到您？',
             style: TextStyle(
               fontSize: 16,
               color: Colors.black54,
             ),
           ),
-          const Text(
-            '的任务交给我吧～',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black54,
-            ),
-          ),
+          // const Text(
+          //   '的任务交给我吧～',
+          //   style: TextStyle(
+          //     fontSize: 16,
+          //     color: Colors.black54,
+          //   ),
+          // ),
         ],
       ),
     );
