@@ -24,11 +24,11 @@ async function solution(userid, conversation_id, isDeepThinking, isSearch, query
         ]
     }
     console.log(data);
-    const response = await fetch('http://192.168.42.14:9000/v1/chat-messages', {
+    const response = await fetch('http://192.168.0.29:8080/v1/chat-messages', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer app-74Z98SoaD00TYFpwbbzDCduY',
+            'Authorization': 'Bearer app-0xfFffGoZ5mwBu57eRPtS4qT',
         },
         body: JSON.stringify(data)
     })
