@@ -49,30 +49,46 @@ class MessageHistory {
   Map<String, dynamic> toJson() => _$MessageHistoryToJson(this);
 
   bool isDeepThink() {
-    return answer.startsWith('<details');
+    return answer.startsWith('<details') || answer.startsWith('<think');
   }
 
   bool isThinking() {
-    final result = answer.contains('</details>');
+    final result = answer.contains('</details>') || answer.contains('</think>');
     return !result;
   }
 
   String getMessages() {
     if (isDeepThink()) {
-      final arrays = answer.split('</details>');
-      if (arrays.length < 2) return '';
-      return arrays[1].trim();
+      if (answer.startsWith('<details')) {
+        final arrays = answer.split('</details>');
+        if (arrays.length < 2) return '';
+        return arrays[1].trim();
+      }
+      if (answer.startsWith('<think')) {
+        final arrays = answer.split('</think>');
+        if (arrays.length < 2) return '';
+        return arrays[1].trim();
+      }
     }
     return answer.trim();
   }
 
   String getThinks() {
-    final regex = RegExp(r'<details[^>]*>(.*?)</details>', dotAll: true);
-    final match = regex.firstMatch(answer);
+    var regex = RegExp(r'<details[^>]*>(.*?)</details>', dotAll: true);
+    var match = regex.firstMatch(answer);
     if (match != null) {
       final result = match.group(1);
       return result
               ?.replaceAll('<summary> Thinking... </summary>', '')
+              .trim() ??
+          '';
+    }
+    regex = RegExp(r'<think[^>]*>(.*?)</think>', dotAll: true);
+    match = regex.firstMatch(answer);
+    if (match != null) {
+      final result = match.group(1);
+      return result
+              ?.replaceAll('<summary> Thinking... </summary>', '').replaceAll('<think>', '').replaceAll('</think>', '')
               .trim() ??
           '';
     }

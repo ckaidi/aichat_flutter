@@ -6,11 +6,12 @@ import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 
 class ServiceUtils {
-  static final String baseUrl = 'http://192.168.42.14:9000/v1/';
+  // static final String baseUrl = 'http://192.168.42.14:9000/v1/';
+  static final String baseUrl = 'http://192.168.0.29:8080/v1/';
   static final Dio _dio = Dio();
-  static final String apiKey = 'app-74Z98SoaD00TYFpwbbzDCduY';
+  // static final String apiKey = 'app-74Z98SoaD00TYFpwbbzDCduY';
   // 恒建dify
-  // static final String apiKey = 'app-0xfFffGoZ5mwBu57eRPtS4qT';
+  static final String apiKey = 'app-0xfFffGoZ5mwBu57eRPtS4qT';
 
   static Future<(bool, List<Conversations>, String)>
   getConversationsHistory() async {

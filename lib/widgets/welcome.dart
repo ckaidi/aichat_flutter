@@ -27,7 +27,7 @@ class Welcome extends StatelessWidget {
           const SizedBox(height: 20),
           // 欢迎文本
           const Text(
-            '我是恒健DeepSeek应用',
+            '我是DeepSeek应用',
             style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
