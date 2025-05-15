@@ -1,0 +1,19 @@
+name: hk_chat_flutter
+services:
+  web:
+    image: hk_chat_flutter
+    container_name: hk_chat_flutter
+    build: .
+    ports:
+      - "8081:80"
+    healthcheck:
+      # 使用curl检查服务健康状态
+      test: ["CMD", "curl", "-f", "-k", "http://localhost/"]
+      # 每30秒检查一次
+      interval: 30s
+      # 检查超时时间
+      timeout: 5s
+      # 连续失败3次后标记为不健康
+      retries: 3
+      # 启动后等待时间
+      start_period: 60s
